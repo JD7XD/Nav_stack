@@ -1,0 +1,1024 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
+     Commit Version: 1.5.1-0-g916b5db  Build Version: 1.5.7152.31018
+     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
+<robot
+  name="urdfe2bot12" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+  <!-- <xacro:include filename="$(find urdfe2bot12)/urdf/urdfe2bot.gazebo"/> -->
+  <link
+    name="body">
+    <inertial>
+      <origin
+        xyz="-0.032147 0.00053392 0.037471"
+        rpy="0 0 0" />
+      <mass
+        value="32" />
+      <inertia
+        ixx="0.36237"
+        ixy="0.0015808"
+        ixz="0.0057776"
+        iyy="0.46134"
+        iyz="-0.00064358"
+        izz="0.63024" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://urdfe2bot12/meshes/body.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://urdfe2bot12/meshes/body.STL" />
+      </geometry>
+    </collision>
+  </link>
+  
+
+
+  <link
+    name="lw">
+    <inertial>
+      <origin
+        xyz="-0.082466 0 0"
+        rpy="0 0 0" />
+      <mass
+        value="1.158" />
+      <inertia
+        ixx="0.0033185"
+        ixy="-1.475E-19"
+        ixz="-9.561E-20"
+        iyy="0.0020245"
+        iyz="-2.4925E-08"
+        izz="0.0020246" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://urdfe2bot12/meshes/lw.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://urdfe2bot12/meshes/lw.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="lwj"
+    type="continuous">
+    <origin
+      xyz="0 0.085 0"
+      rpy="2.12103422138921 0 -1.5707963267949" />
+    <parent
+      link="body" />
+    <child
+      link="lw" />
+    <axis
+      xyz="-1 0 0" />
+  </joint>
+  <link
+    name="rw">
+    <inertial>
+      <origin
+        xyz="-0.082466 6.9389E-18 2.0817E-17"
+        rpy="0 0 0" />
+      <mass
+        value="1.158" />
+      <inertia
+        ixx="0.0033185"
+        ixy="-6.6387E-20"
+        ixz="-8.3068E-20"
+        iyy="0.0020246"
+        iyz="3.7947E-19"
+        izz="0.0020245" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://urdfe2bot12/meshes/rw.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://urdfe2bot12/meshes/rw.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="rwj"
+    type="continuous">
+    <origin
+      xyz="0 -0.085 0"
+      rpy="-2.50840239580501 0 1.5707963267949" />
+    <parent
+      link="body" />
+    <child
+      link="rw" />
+    <axis
+      xyz="1 0 0" />
+  </joint>
+  <link
+    name="flomni">
+    <inertial>
+      <origin
+        xyz="-0.034905 -2.7756E-17 -2.7756E-17"
+        rpy="0 0 0" />
+      <mass
+        value="0.30837" />
+      <inertia
+        ixx="0.00037087"
+        ixy="-1.4317E-20"
+        ixz="-4.2357E-21"
+        iyy="0.00022667"
+        iyz="4.7434E-20"
+        izz="0.00022667" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://urdfe2bot12/meshes/flomni.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://urdfe2bot12/meshes/flomni.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="flomnij"
+    type="continuous">
+    <origin
+      xyz="0.200902106781187 0.1258 -0.0342499999999989"
+      rpy="2.38898873355788 0 -1.5707963267949" />
+    <parent
+      link="body" />
+    <child
+      link="flomni" />
+    <axis
+      xyz="1 0 0" />
+  </joint>
+  <link
+    name="fromni">
+    <inertial>
+      <origin
+        xyz="-0.0349048899590186 2.77555756156289E-17 0"
+        rpy="0 0 0" />
+      <mass
+        value="0.308365678087562" />
+      <inertia
+        ixx="0.000370874589036751"
+        ixy="1.19151447417302E-20"
+        ixz="-8.25996731854451E-21"
+        iyy="0.000226671785702452"
+        iyz="-6.7762635780344E-21"
+        izz="0.000226671785702452" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://urdfe2bot12/meshes/fromni.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://urdfe2bot12/meshes/fromni.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="fromnij"
+    type="continuous">
+    <origin
+      xyz="0.2005 -0.125872783041687 -0.0342500000000003"
+      rpy="3.09391998897137 0 1.5707963267949" />
+    <parent
+      link="body" />
+    <child
+      link="fromni" />
+    <axis
+      xyz="1 0 0" />
+  </joint>
+  <link
+    name="rlomni">
+    <inertial>
+      <origin
+        xyz="-0.034905 0 0"
+        rpy="0 0 0" />
+      <mass
+        value="0.30837" />
+      <inertia
+        ixx="0.00037087"
+        ixy="9.2988E-22"
+        ixz="-2.1779E-20"
+        iyy="0.00022667"
+        iyz="-1.3553E-20"
+        izz="0.00022667" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://urdfe2bot12/meshes/rlomni.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://urdfe2bot12/meshes/rlomni.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="rlomnij"
+    type="continuous">
+    <origin
+      xyz="-0.1995 0.125872783041683 -0.0342499999999998"
+      rpy="-1.89774850579501 0 -1.5707963267949" />
+    <parent
+      link="body" />
+    <child
+      link="rlomni" />
+    <axis
+      xyz="1 0 0" />
+  </joint>
+  <link
+    name="rromni">
+    <inertial>
+      <origin
+        xyz="-0.034905 -2.7756E-17 -1.3878E-17"
+        rpy="0 0 0" />
+      <mass
+        value="0.30837" />
+      <inertia
+        ixx="0.00037087"
+        ixy="1.6153E-20"
+        ixz="-8.0326E-21"
+        iyy="0.00022667"
+        iyz="0"
+        izz="0.00022667" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://urdfe2bot12/meshes/rromni.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://urdfe2bot12/meshes/rromni.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="rromnij"
+    type="continuous">
+    <origin
+      xyz="-0.1995 -0.125872783041683 -0.0342499999999998"
+      rpy="3.09391998897137 0 1.5707963267949" />
+    <parent
+      link="body" />
+    <child
+      link="rromni" />
+    <axis
+      xyz="1 0 0" />
+  </joint>
+  <link
+    name="lidar">
+    <inertial>
+      <origin
+        xyz="-0.17752 -0.1574 -0.2195"
+        rpy="0 0 0" />
+      <mass
+        value="0.5" />
+      <inertia
+        ixx="0.42354"
+        ixy="0.00079276"
+        ixz="-0.048158"
+        iyy="0.63035"
+        iyz="0.0019623"
+        izz="0.40007" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="1.58167284329244 0.00882986714456604 0.888909980106345" />
+      <geometry>
+        <mesh
+          filename="package://urdfe2bot12/meshes/lidar.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="1.58167284329244 0.00882986714456604 0.888909980106345" />
+      <geometry>
+        <mesh
+          filename="package://urdfe2bot12/meshes/lidar.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="lidarj"
+    type="fixed">
+    <!--190896757576048 z of lidarj-->
+    <origin
+      xyz="0.252326011817588 0 0.23"
+      rpy="0 0 0" />
+    <parent
+      link="body" />
+    <child
+      link="lidar" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="rs">
+    <inertial>
+      <origin
+        xyz="0.00168231618840266 2.48029107840879E-06 -0.0132722905857043"
+        rpy="0 0 0" />
+      <mass
+        value="0.0381911723670038" />
+      <inertia
+        ixx="2.11168822584964E-06"
+        ixy="-8.02357351336878E-09"
+        ixz="4.51127226749075E-08"
+        iyy="2.22571079474839E-05"
+        iyz="-1.30126755801211E-08"
+        izz="2.35737411262434E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://urdfe2bot12/meshes/rs.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://urdfe2bot12/meshes/rs.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="rsj"
+    type="fixed">
+    <origin
+      xyz="0.272552106781188 0 0.0695500000000006"
+      rpy="1.5707963267949 0 1.57079631189537" />
+    <parent
+      link="body" />
+    <child
+      link="rs" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="u1">
+    <inertial>
+      <origin
+        xyz="3.46944695195361E-18 -0.000411315391536465 0.00285634509413218"
+        rpy="0 0 0" />
+      <mass
+        value="0.0100741087867429" />
+      <inertia
+        ixx="5.03003937451672E-07"
+        ixy="-4.38361031615645E-22"
+        ixz="9.1246830566421E-23"
+        iyy="3.01671930858575E-06"
+        iyz="-6.03456396046956E-09"
+        izz="3.10627228046544E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://urdfe2bot12/meshes/u1.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.101960784313725 0.101960784313725 0.101960784313725 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://urdfe2bot12/meshes/u1.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="u1j"
+    type="fixed">
+    <origin
+      xyz="0.220099360511441 0.1892 0.06375"
+      rpy="1.5707963267949 -1.5707963267949 0" />
+    <parent
+      link="body" />
+    <child
+      link="u1" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="u2">
+    <inertial>
+      <origin
+        xyz="2.77555756156289E-17 0.000411315391536465 -0.00285634509413218"
+        rpy="0 0 0" />
+      <mass
+        value="0.0100741087867429" />
+      <inertia
+        ixx="5.03003937451675E-07"
+        ixy="-1.13264503142867E-21"
+        ixz="-1.86044675401237E-22"
+        iyy="3.01671930858575E-06"
+        iyz="-6.0345639604695E-09"
+        izz="3.10627228046544E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://urdfe2bot12/meshes/u2.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.101960784313725 0.101960784313725 0.101960784313725 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://urdfe2bot12/meshes/u2.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="u2j"
+    type="fixed">
+    <origin
+      xyz="0.272299360511441 0.11 -0.00825000000000004"
+      rpy="-1.5707963267949 0 1.5707963267949" />
+    <parent
+      link="body" />
+    <child
+      link="u2" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="u3">
+    <inertial>
+      <origin
+        xyz="-1.38777878078145E-17 0.000411315391536465 -0.00285634509413218"
+        rpy="0 0 0" />
+      <mass
+        value="0.0100741087867429" />
+      <inertia
+        ixx="5.03003937451674E-07"
+        ixy="-4.03608316742837E-22"
+        ixz="-1.62988589026773E-22"
+        iyy="3.01671930858575E-06"
+        iyz="-6.03456396046967E-09"
+        izz="3.10627228046545E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://urdfe2bot12/meshes/u3.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.101960784313725 0.101960784313725 0.101960784313725 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://urdfe2bot12/meshes/u3.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="u3j"
+    type="fixed">
+    <origin
+      xyz="0.272299360511441 -0.109999999999999 -0.00825000000000005"
+      rpy="-1.5707963267949 0 1.5707963267949" />
+    <parent
+      link="body" />
+    <child
+      link="u3" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="u4">
+    <inertial>
+      <origin
+        xyz="0 -0.00041131539153641 0.00285634509413221"
+        rpy="0 0 0" />
+      <mass
+        value="0.0100741087867429" />
+      <inertia
+        ixx="5.03003937451673E-07"
+        ixy="-2.34834132658335E-23"
+        ixz="9.49973325197811E-23"
+        iyy="3.01671930858575E-06"
+        iyz="-6.03456396046963E-09"
+        izz="3.10627228046544E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://urdfe2bot12/meshes/u4.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.101960784313725 0.101960784313725 0.101960784313725 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://urdfe2bot12/meshes/u4.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="u4j"
+    type="fixed">
+    <origin
+      xyz="0.220099360511441 -0.1892 0.0637499999999999"
+      rpy="1.5707963267949 -1.5707963267949 0" />
+    <parent
+      link="body" />
+    <child
+      link="u4" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="u5">
+    <inertial>
+      <origin
+        xyz="3.46944695195361E-18 -0.000411315391536493 0.00285634509413218"
+        rpy="0 0 0" />
+      <mass
+        value="0.0100741087867429" />
+      <inertia
+        ixx="5.03003937451674E-07"
+        ixy="3.63102507414452E-22"
+        ixz="-4.80942821934978E-23"
+        iyy="3.01671930858575E-06"
+        iyz="-6.03456396046941E-09"
+        izz="3.10627228046544E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://urdfe2bot12/meshes/u5.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.101960784313725 0.101960784313725 0.101960784313725 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://urdfe2bot12/meshes/u5.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="u5j"
+    type="fixed">
+    <origin
+      xyz="-0.262649496338631 -0.152 0.09775"
+      rpy="3.14159265358979 -1.5707963267949 0" />
+    <parent
+      link="body" />
+    <child
+      link="u5" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="u6">
+    <inertial>
+      <origin
+        xyz="0 -0.000411315391536493 0.00285634509413224"
+        rpy="0 0 0" />
+      <mass
+        value="0.0100741087867429" />
+      <inertia
+        ixx="5.03003937451673E-07"
+        ixy="9.45905253787276E-22"
+        ixz="-6.64713866090698E-23"
+        iyy="3.01671930858575E-06"
+        iyz="-6.03456396046955E-09"
+        izz="3.10627228046544E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://urdfe2bot12/meshes/u6.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.101960784313725 0.101960784313725 0.101960784313725 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://urdfe2bot12/meshes/u6.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="u6j"
+    type="fixed">
+    <origin
+      xyz="-0.265649496338631 0.152 0.09775"
+      rpy="3.14159265358979 1.5707963267949 0" />
+    <parent
+      link="body" />
+    <child
+      link="u6" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="cl">
+    <inertial>
+      <origin
+        xyz="-2.77555756156289E-17 -0.000411315391536771 0.00285634509413213"
+        rpy="0 0 0" />
+      <mass
+        value="0.0100741087867429" />
+      <inertia
+        ixx="5.03003937451672E-07"
+        ixy="7.68611055305445E-20"
+        ixz="3.65263248344992E-22"
+        iyy="3.01671930858575E-06"
+        iyz="-6.03456396048087E-09"
+        izz="3.10627228046544E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://urdfe2bot12/meshes/cl.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.101960784313725 0.101960784313725 0.101960784313725 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://urdfe2bot12/meshes/cl.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="clj"
+    type="fixed">
+    <origin
+      xyz="0.311361826051464 0.0415875377454991 -0.0588499999999994"
+      rpy="3.14159265358967 0 1.57296611243423" />
+    <parent
+      link="body" />
+    <child
+      link="cl" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="cr">
+    <inertial>
+      <origin
+        xyz="-2.4286E-17 -0.00041132 0.0028563"
+        rpy="0 0 0" />
+      <mass
+        value="0.010074" />
+      <inertia
+        ixx="5.03E-07"
+        ixy="7.8602E-20"
+        ixz="2.7178E-22"
+        iyy="3.0167E-06"
+        iyz="-6.0346E-09"
+        izz="3.1063E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://urdfe2bot12/meshes/cr.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.10196 0.10196 0.10196 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://urdfe2bot12/meshes/cr.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="crj"
+    type="fixed">
+    <origin
+      xyz="0.311537578550346 -0.0394122715818021 -0.0588499999999994"
+      rpy="3.14159265358967 0 1.57296611243422" />
+    <parent
+      link="body" />
+    <child
+      link="cr" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <!-- Gazebo Plugins -->
+  <gazebo>
+    <plugin name="differential_drive_controller" filename="libgazebo_ros_diff_drive.so">
+  
+      <!-- Plugin update rate in Hz -->
+      <updateRate>20</updateRate>
+  
+      <!-- Name of left joint, defaults to `left_joint` -->
+      <leftJoint>lwj</leftJoint>
+  
+      <!-- Name of right joint, defaults to `right_joint` -->
+      <rightJoint>rwj</rightJoint>
+  
+      <!-- The distance from the center of one wheel to the other, in meters, defaults to 0.34 m -->
+      <wheelSeparation>0.340</wheelSeparation>
+  
+      <!-- Diameter of the wheels, in meters, defaults to 0.15 m -->
+      <wheelDiameter>0.085</wheelDiameter>
+  
+      <!-- Wheel acceleration, in rad/s^2, defaults to 0.0 rad/s^2 -->
+      <wheelAcceleration>1.0</wheelAcceleration>
+  
+      <!-- Maximum torque which the wheels can produce, in Nm, defaults to 5 Nm -->
+      <wheelTorque>100</wheelTorque>
+  
+      <!-- Topic to receive geometry_msgs/Twist message commands, defaults to `cmd_vel` -->
+      <commandTopic>cmd_vel</commandTopic>
+  
+      <!-- Topic to publish nav_msgs/Odometry messages, defaults to `odom` -->
+      <odometryTopic>odom</odometryTopic>
+  
+      <!-- Odometry frame, defaults to `odom` -->
+      <odometryFrame>odom</odometryFrame>
+  
+      <!-- Robot frame to calculate odometry from, defaults to `base_footprint` -->
+      <robotBaseFrame>body</robotBaseFrame>
+  
+      <!-- Odometry source, 0 for ENCODER, 1 for WORLD, defaults to WORLD -->
+      <odometrySource>1</odometrySource>
+  
+      <!-- Set to true to publish transforms for the wheel links, defaults to false -->
+      <publishWheelTF>true</publishWheelTF>
+  
+      <!-- Set to true to publish transforms for the odometry, defaults to true -->
+      <publishOdom>true</publishOdom>
+  
+      <!-- Set to true to publish sensor_msgs/JointState on /joint_states for the wheel joints, defaults to false -->
+      <publishWheelJointState>true</publishWheelJointState>
+  
+      <!-- Set to true to swap right and left wheels, defaults to true -->
+      <legacyMode>false</legacyMode>
+    </plugin>
+  </gazebo>
+
+  <!-- Set up laser gazebo details -->
+        <gazebo reference="lidar">
+            <sensor type="ray" name="laser">
+                <pose>0 0 0.03 0 0 0</pose>
+                <visualize>false</visualize>
+                <update_rate>40</update_rate>
+                <ray>
+                    <scan>
+                        <horizontal>
+                            <samples>1080</samples>
+                            <resolution>1</resolution>
+                            <min_angle>-3.14159</min_angle>
+                            <max_angle>3.14159</max_angle>  
+                        </horizontal>
+                    </scan>
+                    <range>
+                        <min>0.3</min>
+                        <max>20.0</max>
+                        <resolution>0.01</resolution>
+                    </range>
+                </ray>
+                <plugin name="hokuyo_node" filename="libgazebo_ros_laser.so">
+                    <topicName>/scan</topicName>
+                    <frameName>lidar</frameName>
+                </plugin>
+            </sensor>
+        </gazebo>
+
+  <!-- Gazebo coeff of friction on wheels and gravity -->
+  <gazebo reference="flomni">
+    <mu1>0.1</mu1>
+    <mu2>0.1</mu2>
+    <selfCollide>true</selfCollide>
+  </gazebo>
+  <gazebo reference="fromni">
+    <mu1>0.1</mu1>
+    <mu2>0.1</mu2>
+    <selfCollide>true</selfCollide>
+  </gazebo>
+  <gazebo reference="rlomni">
+    <mu1>0.1</mu1>
+    <mu2>0.1</mu2>
+    <selfCollide>true</selfCollide>
+  </gazebo>
+  <gazebo reference="rromni">
+    <mu1>0.1</mu1>
+    <mu2>0.1</mu2>
+    <selfCollide>true</selfCollide>
+  </gazebo>
+  <gazebo reference="rw">
+    <mu1>50000</mu1>
+    <mu2>50000</mu2>
+    <selfCollide>true</selfCollide>
+    <gravity>true</gravity>
+  </gazebo>
+  <gazebo reference="lw">
+    <mu1>50000</mu1>
+    <mu2>50000</mu2>
+    <selfCollide>true</selfCollide>
+    <gravity>true</gravity>
+  </gazebo>
+  <gazebo reference="body">
+    <mu1>0.01</mu1>58167284329244
+    <mu2>0.01</mu2>
+    <selfCollide>true</selfCollide>
+    <gravity>true</gravity>
+  </gazebo>
+
+
+</robot>
