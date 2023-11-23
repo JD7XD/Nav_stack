@@ -13,53 +13,53 @@ roslaunch my_robot_name_2dnav move_base.launch - launch the move base for autono
 
 
 
+  
+      
 #include "ros/ros.h"
 #include "geometry_msgs/Twist.h"
-#include "nav_msgs/Odometry.h"
+#include "std_msgs/Int32.h"
 
 class RobotController {
 public:
     RobotController() : nh_("~") {
         // Parameters
-        nh_.param("linear_speed", linear_speed_, 0.2);    // Adjust linear speed as needed
-        nh_.param("angular_speed", angular_speed_, 0.5);  // Adjust angular speed as needed
+        nh_.param("linear_speed", linear_speed_, 0.1);     // Adjust linear speed as needed
+        nh_.param("angular_speed", angular_speed_, 0.5);   // Adjust angular speed as needed
+        nh_.param("encoder_ticks_per_meter", ticks_per_meter_, 1000.0);  // Adjust as needed
 
         // Publishers and Subscribers
         cmd_vel_pub_ = nh_.advertise<geometry_msgs::Twist>("cmd_vel", 10);
-        odom_sub_ = nh_.subscribe("odom", 10, &RobotController::odomCallback, this);
+        left_encoder_sub_ = nh_.subscribe("left_encoder", 10, &RobotController::leftEncoderCallback, this);
+        right_encoder_sub_ = nh_.subscribe("right_encoder", 10, &RobotController::rightEncoderCallback, this);
 
         // Initialize twist message
         cmd_vel_msg_.linear.x = 0.0;
         cmd_vel_msg_.angular.z = 0.0;
     }
 
-    void moveForward(double distance) {
-        resetOdom();
+    void moveForward(int encoder_ticks) {
+        resetEncoders();
         ros::Rate rate(10);  // 10 Hz
-        double traveled_distance = 0.0;
 
-        while (ros::ok() && traveled_distance < distance) {
+        while (ros::ok() && left_encoder_ticks_ < encoder_ticks) {
             cmd_vel_msg_.linear.x = linear_speed_;
             cmd_vel_pub_.publish(cmd_vel_msg_);
             ros::spinOnce();
             rate.sleep();
-            traveled_distance = getTraveledDistance();
         }
 
         stopRobot();
     }
 
-    void turnRight(double angle) {
-        resetOdom();
+    void turnRight(int encoder_ticks) {
+        resetEncoders();
         ros::Rate rate(10);  // 10 Hz
-        double rotated_angle = 0.0;
 
-        while (ros::ok() && rotated_angle < angle) {
+        while (ros::ok() && right_encoder_ticks_ < encoder_ticks) {
             cmd_vel_msg_.angular.z = -angular_speed_;  // Turn right
             cmd_vel_pub_.publish(cmd_vel_msg_);
             ros::spinOnce();
             rate.sleep();
-            rotated_angle = getRotatedAngle();
         }
 
         stopRobot();
@@ -72,48 +72,48 @@ public:
     }
 
 private:
-    void resetOdom() {
-        initial_odom_ = current_odom_;
+    void resetEncoders() {
+        left_encoder_ticks_ = 0;
+        right_encoder_ticks_ = 0;
     }
 
-    double getTraveledDistance() {
-        return sqrt(pow(current_odom_.pose.pose.position.x - initial_odom_.pose.pose.position.x, 2) +
-                    pow(current_odom_.pose.pose.position.y - initial_odom_.pose.pose.position.y, 2));
+    void leftEncoderCallback(const std_msgs::Int32::ConstPtr& msg) {
+        left_encoder_ticks_ = msg->data;
     }
 
-    double getRotatedAngle() {
-        return atan2(2.0 * (current_odom_.pose.pose.orientation.w * current_odom_.pose.pose.orientation.z +
-                           current_odom_.pose.pose.orientation.x * current_odom_.pose.pose.orientation.y),
-                     1.0 - 2.0 * (current_odom_.pose.pose.orientation.y * current_odom_.pose.pose.orientation.y +
-                                 current_odom_.pose.pose.orientation.z * current_odom_.pose.pose.orientation.z));
-    }
-
-    void odomCallback(const nav_msgs::Odometry::ConstPtr& msg) {
-        current_odom_ = *msg;
+    void rightEncoderCallback(const std_msgs::Int32::ConstPtr& msg) {
+        right_encoder_ticks_ = msg->data;
     }
 
     ros::NodeHandle nh_;
     ros::Publisher cmd_vel_pub_;
-    ros::Subscriber odom_sub_;
+    ros::Subscriber left_encoder_sub_;
+    ros::Subscriber right_encoder_sub_;
     geometry_msgs::Twist cmd_vel_msg_;
-    nav_msgs::Odometry initial_odom_;
-    nav_msgs::Odometry current_odom_;
+    int left_encoder_ticks_;
+    int right_encoder_ticks_;
     double linear_speed_;
     double angular_speed_;
+    double ticks_per_meter_;
 };
 
 int main(int argc, char** argv) {
     ros::init(argc, argv, "robot_controller");
     RobotController robot_controller;
 
-    // Move 2 meters forward
-    robot_controller.moveForward(2.0);
+    // Move forward for 1000 encoder ticks
+    robot_controller.moveForward(1000);
 
-    // Turn right by 90 degrees
-    robot_controller.turnRight(M_PI / 2.0);
+    // Turn right by 90 degrees (approximately 500 encoder ticks for example purposes)
+    robot_controller.turnRight(500);
 
-    // Move 1 meter forward
-    robot_controller.moveForward(1.0);
+    // Move forward for 500 encoder ticks
+    robot_controller.moveForward(500);
+
+    ros::shutdown();
+    return 0;
+}
+
 
     ros::shutdown();
     return 0;
