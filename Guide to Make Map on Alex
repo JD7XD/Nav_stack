@@ -1,0 +1,13 @@
+nodes and launches to set map on the go:
+
+roslaunch hub_driver motor_drivers.launch 
+rosrun teleop_twist_keyboard teleop_twist_keyboard.py
+roslaunch velodyne_pointcloud VLP16_points.launch 
+roslaunch tutorial make_a_map.launch --> map to odom to base_link to velodyne state publishers
+rosrun hector_mapping hector_mapping _base_frame:=base_link -->publishing the map
+roslaunch tutorial amcl.launch --> for locatlization
+
+
+
+for move_base (not working yet)
+roslaunch my_robot_name_2dnav move_base.launch 
